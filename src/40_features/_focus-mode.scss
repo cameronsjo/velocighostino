@@ -1,0 +1,28 @@
+// ─── Focus Mode ──────────────────────────────────────────────────────
+// Hide tab bar and titlebar when both sidebars are collapsed
+
+// When both sidebars are closed, reduce chrome
+.workspace:not(:has(.mod-left-split:not(.is-sidedock-collapsed))):not(:has(.mod-right-split:not(.is-sidedock-collapsed))) {
+  // Fade out tab header container
+  .workspace-tab-header-container {
+    opacity: 0.3;
+    max-height: 28px;
+    transition: opacity var(--vl-duration-normal) var(--vl-ease),
+      max-height var(--vl-duration-normal) var(--vl-ease);
+
+    &:hover {
+      opacity: 1;
+      max-height: 40px;
+    }
+  }
+
+  // Minimize titlebar
+  .titlebar {
+    opacity: 0.3;
+    transition: opacity var(--vl-duration-normal) var(--vl-ease);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

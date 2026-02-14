@@ -1,0 +1,74 @@
+// ─── Nav Header & Titlebar ───────────────────────────────────────────
+
+.titlebar {
+  background: var(--background-secondary);
+}
+
+.titlebar-text {
+  font-family: var(--font-interface-theme);
+  font-size: 0.82em;
+  color: var(--text-muted);
+}
+
+// Vault title
+.workspace-drawer-vault-name {
+  font-family: var(--font-interface-theme);
+  font-weight: 600;
+  font-size: 0.9em;
+  padding: 8px 12px;
+}
+
+// Nav action buttons (sidebar toggles, etc.)
+.clickable-icon {
+  border-radius: var(--radius-xs);
+  color: var(--text-muted);
+  padding: 4px;
+
+  &:hover {
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+  }
+
+  &.is-active {
+    color: var(--text-accent);
+  }
+}
+
+// ─── Glass Bevel on Buttons (tasks 7.2, 7.3) ─────────────────────
+// CTA buttons — glass bevel effect
+button.mod-cta {
+  box-shadow: var(--glass-button);
+  border-radius: var(--radius-s);
+  font-family: var(--font-interface-theme);
+  font-weight: 600;
+  transition: box-shadow var(--vl-duration-fast) var(--vl-ease),
+    background-color var(--vl-duration-fast) var(--vl-ease);
+
+  &:hover {
+    box-shadow: var(--glass-button), var(--shadow-xs);
+  }
+
+  &:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Secondary buttons
+button.mod-warning {
+  box-shadow: var(--glass-button);
+}
+
+// Sidebar toggle ribbons
+.side-dock-ribbon {
+  background: var(--background-secondary);
+  border-right: 1px solid var(--background-modifier-border);
+}
+
+.side-dock-ribbon-action {
+  color: var(--text-faint);
+  padding: 6px;
+
+  &:hover {
+    color: var(--text-normal);
+  }
+}

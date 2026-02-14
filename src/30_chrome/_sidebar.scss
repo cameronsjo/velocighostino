@@ -1,0 +1,49 @@
+// ─── Sidebar & File Explorer Styling ─────────────────────────────────
+
+// Sidebar background
+.workspace-split.mod-left-split,
+.workspace-split.mod-right-split {
+  background: var(--background-secondary);
+}
+
+// File explorer tree
+.nav-file-title,
+.nav-folder-title {
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-interface-theme);
+  font-size: 0.88em;
+  color: var(--text-muted);
+  transition: background-color var(--vl-duration-fast) var(--vl-ease),
+    color var(--vl-duration-fast) var(--vl-ease);
+
+  // Hover state
+  &:hover {
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+  }
+}
+
+// Active file highlight
+.nav-file-title.is-active {
+  background: var(--color-accent-4);
+  color: var(--text-accent);
+  font-weight: 500;
+}
+
+// Folder collapse icon
+.nav-folder-collapse-indicator {
+  color: var(--text-faint);
+}
+
+// Tree indentation lines
+.nav-folder-children {
+  padding-left: 12px;
+  border-left: 1px solid var(--background-modifier-border);
+  margin-left: 8px;
+}
+
+// Sidebar section headers
+.workspace-leaf-content[data-type="file-explorer"] .nav-header {
+  padding: 8px;
+}

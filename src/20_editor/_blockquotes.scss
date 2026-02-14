@@ -1,0 +1,16 @@
+// ─── Blockquote Styling ──────────────────────────────────────────────
+// Accent-colored left border with subtle background tint
+
+.markdown-source-view,
+.markdown-preview-view {
+  blockquote,
+  .HyperMD-quote {
+    border-left: 3px solid var(--interactive-accent);
+    background: var(--color-accent-4);
+    padding: 0.5em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+}

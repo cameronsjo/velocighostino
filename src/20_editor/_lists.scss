@@ -1,0 +1,34 @@
+// ─── List Markers: Dash Style ────────────────────────────────────────
+// Replace default disc/circle bullets with thin horizontal dashes
+
+.markdown-source-view,
+.markdown-preview-view {
+  ul {
+    list-style: none;
+    padding-left: 1.5em;
+
+    > li {
+      position: relative;
+
+      &::before {
+        content: "–";
+        position: absolute;
+        left: -1.3em;
+        color: var(--text-faint);
+        font-weight: 400;
+      }
+    }
+  }
+
+  // Nested lists — slightly indented
+  ul ul {
+    padding-left: 1.2em;
+  }
+}
+
+// Live preview / source mode list markers
+.markdown-source-view .list-bullet::after {
+  content: "–";
+  font-size: 1em;
+  color: var(--text-faint);
+}

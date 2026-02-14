@@ -1,0 +1,21 @@
+// ─── Status Bar ──────────────────────────────────────────────────────
+// Compact, unobtrusive, faint text
+
+.status-bar {
+  background: transparent;
+  border-top: none;
+  font-family: var(--font-interface-theme);
+  font-size: 0.78em;
+  color: var(--text-faint);
+  padding: 2px 8px;
+  height: auto;
+  min-height: unset;
+}
+
+.status-bar-item {
+  padding: 0 6px;
+
+  &:hover {
+    color: var(--text-muted);
+  }
+}

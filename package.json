@@ -1,0 +1,9 @@
+{
+  "name": "velocighostino",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "sass src/theme.scss theme.css --no-source-map --style compressed",
+    "dev": "sass src/theme.scss theme.css --no-source-map --watch"
+  }
+}

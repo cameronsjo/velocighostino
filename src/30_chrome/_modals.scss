@@ -1,0 +1,74 @@
+// ─── Modals & Prompts ────────────────────────────────────────────────
+// Backdrop blur, frosted glass, shadow-l, rounded corners
+
+.modal-container {
+  .modal-bg {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+  }
+}
+
+.modal {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-l), var(--glass-base);
+  overflow: hidden;
+}
+
+.modal-title {
+  font-family: var(--font-interface-theme);
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.modal-close-button {
+  color: var(--text-faint);
+
+  &:hover {
+    color: var(--text-normal);
+  }
+}
+
+// Settings modal
+.modal.mod-settings {
+  border-radius: var(--radius-l);
+}
+
+// Prompt (quick switcher, command palette)
+.prompt {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-l);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.prompt-input {
+  background: var(--background-modifier-form-field);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  font-family: var(--font-interface-theme);
+  padding: 8px 12px;
+
+  &:focus {
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px var(--color-accent-3);
+  }
+}
+
+.suggestion-item {
+  border-radius: var(--radius-xs);
+  padding: 6px 10px;
+  font-family: var(--font-interface-theme);
+
+  &.is-selected {
+    background: var(--color-accent-4);
+    color: var(--text-accent);
+  }
+
+  &:hover {
+    background: var(--background-modifier-hover);
+  }
+}

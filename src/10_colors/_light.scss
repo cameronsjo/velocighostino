@@ -1,0 +1,138 @@
+// ─── Light Mode: Warm Paper ──────────────────────────────────────────
+// Background ~#FAF8F5, OKLCH engine with --bhue: 45 (warm amber)
+// Rainbow colors: higher saturation / lower lightness for contrast
+// Text: #2C2C2C for comfortable reading
+
+.theme-light {
+  color-scheme: light;
+
+  // ─── OKLCH Engine Parameters ────────────────────────────────────
+  --bhue: 45;
+  --bsat-strong: 0.03;
+  --bsat-medium: 0.02;
+  --bsat-faint: 0.012;
+  --bsat-none: 0.006;
+
+  // ─── Lightness Scale (inverted: 00 = lightest) ──────────────────
+  --bl-00: 0.98;
+  --bl-05: 0.96;
+  --bl-10: 0.93;
+  --bl-20: 0.90;
+  --bl-25: 0.87;
+  --bl-30: 0.82;
+  --bl-35: 0.75;
+  --bl-40: 0.65;
+  --bl-50: 0.55;
+  --bl-60: 0.45;
+  --bl-70: 0.35;
+  --bl-100: 0.24;
+
+  // ─── Base Surface Colors (OKLCH parametric) ─────────────────────
+  --color-base-00: oklch(var(--bl-00) var(--bsat-faint) var(--bhue));
+  --color-base-05: oklch(var(--bl-05) var(--bsat-faint) var(--bhue));
+  --color-base-10: oklch(var(--bl-10) var(--bsat-faint) var(--bhue));
+  --color-base-20: oklch(var(--bl-20) var(--bsat-none) var(--bhue));
+  --color-base-25: oklch(var(--bl-25) var(--bsat-none) var(--bhue));
+  --color-base-30: oklch(var(--bl-30) var(--bsat-none) var(--bhue));
+  --color-base-35: oklch(var(--bl-35) var(--bsat-none) var(--bhue));
+  --color-base-40: oklch(var(--bl-40) var(--bsat-none) var(--bhue));
+  --color-base-50: oklch(var(--bl-50) var(--bsat-none) var(--bhue));
+  --color-base-60: oklch(var(--bl-60) var(--bsat-none) var(--bhue));
+  --color-base-70: oklch(var(--bl-70) var(--bsat-none) var(--bhue));
+  --color-base-100: oklch(var(--bl-100) var(--bsat-none) var(--bhue));
+
+  // ─── Semantic Surface Variables ─────────────────────────────────
+  --background-primary: var(--color-base-00);
+  --background-primary-alt: var(--color-base-05);
+  --background-secondary: var(--color-base-05);
+  --background-secondary-alt: var(--color-base-10);
+  --background-modifier-hover: var(--color-base-10);
+  --background-modifier-active-hover: var(--color-base-20);
+  --background-modifier-border: var(--color-base-20);
+  --background-modifier-border-hover: var(--color-base-25);
+  --background-modifier-border-focus: var(--color-base-30);
+  --background-modifier-form-field: var(--color-base-00);
+  --background-modifier-error: #BF3B3B;
+  --background-modifier-error-rgb: 191, 59, 59;
+  --background-modifier-success: #5A8A2A;
+  --background-modifier-success-rgb: 90, 138, 42;
+
+  // ─── Text Colors ────────────────────────────────────────────────
+  --text-normal: #2C2C2C;
+  --text-muted: #5C5C5C;
+  --text-faint: #8C8C8C;
+  --text-on-accent: #FFFFFF;
+  --text-on-accent-inverted: var(--color-base-100);
+  --text-error: #BF3B3B;
+  --text-warning: #B8860B;
+  --text-success: #5A8A2A;
+  --text-selection: rgba(77, 139, 190, 0.2);
+  --text-highlight-bg: rgba(240, 198, 116, 0.3);
+
+  // ─── Accent (deeper blue for light bg contrast) ─────────────────
+  --interactive-accent: #4D8BBE;
+  --interactive-accent-hover: #3D7AAD;
+  --interactive-normal: var(--color-base-10);
+  --interactive-hover: var(--color-base-20);
+  --text-accent: #4D8BBE;
+  --text-accent-hover: #3D7AAD;
+  --accent-h: 207;
+  --accent-s: 45%;
+  --accent-l: 52%;
+
+  // ─── Accent Derivatives ─────────────────────────────────────────
+  --color-accent-1: color-mix(in oklab, #4D8BBE, white 15%);
+  --color-accent-2: oklch(0.60 0.08 220 / 0.4);
+  --color-accent-3: oklch(0.60 0.04 220 / 0.2);
+  --color-accent-4: oklch(0.60 0.02 220 / 0.1);
+
+  // ─── Rainbow Colors (higher sat / lower L for light bg) ─────────
+  --color-red: #BF3B3B;
+  --color-red-rgb: 191, 59, 59;
+  --color-orange: #C44D18;
+  --color-orange-rgb: 196, 77, 24;
+  --color-yellow: #B8860B;
+  --color-yellow-rgb: 184, 134, 11;
+  --color-green: #5A8A2A;
+  --color-green-rgb: 90, 138, 42;
+  --color-cyan: #2D8E84;
+  --color-cyan-rgb: 45, 142, 132;
+  --color-blue: #4D8BBE;
+  --color-blue-rgb: 77, 139, 190;
+  --color-purple: #8B5FB0;
+  --color-purple-rgb: 139, 95, 176;
+  --color-pink: #A855A0;
+  --color-pink-rgb: 168, 85, 160;
+
+  // ─── Caret & Mono ───────────────────────────────────────────────
+  --caret-color: #4D8BBE;
+  --mono-rgb-0: 0, 0, 0;
+  --mono-rgb-100: 255, 255, 255;
+
+  // ─── Transparent Overlays ───────────────────────────────────────
+  --trans-faint-10: oklch(0.20 0.005 var(--bhue) / 0.04);
+  --trans-faint-20: oklch(0.20 0.005 var(--bhue) / 0.07);
+  --trans-faint-30: oklch(0.20 0.005 var(--bhue) / 0.10);
+  --trans-strong-10: oklch(0.20 0.005 var(--bhue) / 0.15);
+  --trans-strong-20: oklch(0.20 0.005 var(--bhue) / 0.25);
+  --trans-strong-30: oklch(0.20 0.005 var(--bhue) / 0.35);
+
+  // ─── Shadow Scale (light mode — subtler) ────────────────────────
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-s: 0 2px 6px rgba(0, 0, 0, 0.10);
+  --shadow-l: 0 8px 24px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+
+  // ─── Glass Effects (light mode — subtler) ───────────────────────
+  --glass-base: inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.04);
+  --glass-button: inset 0 1px 0 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.06);
+
+  // ─── Radial Gradient Workspace Background ───────────────────────
+  --bg-main-inner: var(--color-base-00);
+  --bg-main-outer: var(--color-base-05);
+
+  // ─── Border ─────────────────────────────────────────────────────
+  --border-width: 1px;
+}
