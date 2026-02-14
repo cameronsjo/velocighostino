@@ -1,0 +1,24 @@
+// ─── Image & Embed Styling ───────────────────────────────────────────
+// Full width, rounded corners
+
+.markdown-source-view,
+.markdown-preview-view {
+  img {
+    max-width: 100%;
+    border-radius: var(--radius-s);
+    display: block;
+    margin: 0.5em 0;
+  }
+
+  .internal-embed {
+    border-radius: var(--radius-s);
+    overflow: hidden;
+    margin: 0.5em 0;
+  }
+
+  iframe,
+  video {
+    max-width: 100%;
+    border-radius: var(--radius-s);
+  }
+}

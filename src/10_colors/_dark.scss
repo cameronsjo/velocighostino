@@ -1,0 +1,141 @@
+// ─── Dark Mode: Ghostty Tomorrow Night Palette ──────────────────────
+// Background #282C34, OKLCH engine with --bhue: 220 (blue-gray)
+// Rainbow colors: exact Ghostty ANSI values from color.zig
+// Foreground: ANSI 15 (#EAEAEA) for --text-normal (softer than Config #FFFFFF)
+
+.theme-dark {
+  color-scheme: dark;
+
+  // ─── OKLCH Engine Parameters ────────────────────────────────────
+  --bhue: 220;
+  --bsat-strong: 0.04;
+  --bsat-medium: 0.025;
+  --bsat-faint: 0.015;
+  --bsat-none: 0.008;
+
+  // ─── Lightness Scale (12 discrete steps) ────────────────────────
+  --bl-00: 0.18;
+  --bl-05: 0.21;
+  --bl-10: 0.24;
+  --bl-20: 0.27;
+  --bl-25: 0.30;
+  --bl-30: 0.33;
+  --bl-35: 0.37;
+  --bl-40: 0.42;
+  --bl-50: 0.50;
+  --bl-60: 0.60;
+  --bl-70: 0.72;
+  --bl-100: 0.93;
+
+  // ─── Base Surface Colors (OKLCH parametric) ─────────────────────
+  --color-base-00: oklch(var(--bl-00) var(--bsat-faint) var(--bhue));
+  --color-base-05: oklch(var(--bl-05) var(--bsat-faint) var(--bhue));
+  --color-base-10: oklch(var(--bl-10) var(--bsat-faint) var(--bhue));
+  --color-base-20: oklch(var(--bl-20) var(--bsat-none) var(--bhue));
+  --color-base-25: oklch(var(--bl-25) var(--bsat-none) var(--bhue));
+  --color-base-30: oklch(var(--bl-30) var(--bsat-none) var(--bhue));
+  --color-base-35: oklch(var(--bl-35) var(--bsat-none) var(--bhue));
+  --color-base-40: oklch(var(--bl-40) var(--bsat-none) var(--bhue));
+  --color-base-50: oklch(var(--bl-50) var(--bsat-none) var(--bhue));
+  --color-base-60: oklch(var(--bl-60) var(--bsat-none) var(--bhue));
+  --color-base-70: oklch(var(--bl-70) var(--bsat-none) var(--bhue));
+  --color-base-100: oklch(var(--bl-100) var(--bsat-none) var(--bhue));
+
+  // ─── Semantic Surface Variables ─────────────────────────────────
+  --background-primary: var(--color-base-05);
+  --background-primary-alt: var(--color-base-10);
+  --background-secondary: var(--color-base-00);
+  --background-secondary-alt: var(--color-base-00);
+  --background-modifier-hover: var(--color-base-20);
+  --background-modifier-active-hover: var(--color-base-25);
+  --background-modifier-border: var(--color-base-20);
+  --background-modifier-border-hover: var(--color-base-30);
+  --background-modifier-border-focus: var(--color-base-35);
+  --background-modifier-form-field: var(--color-base-10);
+  --background-modifier-error: #CC6666;
+  --background-modifier-error-rgb: 204, 102, 102;
+  --background-modifier-success: #B5BD68;
+  --background-modifier-success-rgb: 181, 189, 104;
+
+  // ─── Text Colors (Ghostty ANSI derived) ─────────────────────────
+  // ANSI 15 Bright White — softer than Config foreground #FFFFFF
+  --text-normal: #EAEAEA;
+  // ANSI 7 White — Tomorrow Night canonical foreground
+  --text-muted: #C5C8C6;
+  // Derived from ANSI 8 Bright Black, lightened for readability
+  --text-faint: #7F848E;
+  --text-on-accent: #FFFFFF;
+  --text-on-accent-inverted: var(--color-base-05);
+  --text-error: #CC6666;
+  --text-warning: #F0C674;
+  --text-success: #B5BD68;
+  --text-selection: rgba(129, 162, 190, 0.25);
+  --text-highlight-bg: rgba(240, 198, 116, 0.2);
+
+  // ─── Accent (Ghostty Blue #81A2BE) ──────────────────────────────
+  --interactive-accent: #81A2BE;
+  --interactive-accent-hover: #93B1C9;
+  --interactive-normal: var(--color-base-20);
+  --interactive-hover: var(--color-base-25);
+  --text-accent: #81A2BE;
+  --text-accent-hover: #93B1C9;
+  --accent-h: 207;
+  --accent-s: 38%;
+  --accent-l: 63%;
+
+  // ─── Accent Derivatives (color-mix in oklab) ────────────────────
+  --color-accent-1: color-mix(in oklab, #81A2BE, white 20%);
+  --color-accent-2: oklch(0.70 0.06 220 / 0.5);
+  --color-accent-3: oklch(0.70 0.03 220 / 0.3);
+  --color-accent-4: oklch(0.70 0.02 220 / 0.15);
+
+  // ─── Rainbow Colors (Ghostty ANSI exact values) ─────────────────
+  --color-red: #CC6666;
+  --color-red-rgb: 204, 102, 102;
+  --color-orange: #D54E53;
+  --color-orange-rgb: 213, 78, 83;
+  --color-yellow: #F0C674;
+  --color-yellow-rgb: 240, 198, 116;
+  --color-green: #B5BD68;
+  --color-green-rgb: 181, 189, 104;
+  --color-cyan: #8ABEB7;
+  --color-cyan-rgb: 138, 190, 183;
+  --color-blue: #81A2BE;
+  --color-blue-rgb: 129, 162, 190;
+  --color-purple: #B294BB;
+  --color-purple-rgb: 178, 148, 187;
+  --color-pink: #C397D8;
+  --color-pink-rgb: 195, 151, 216;
+
+  // ─── Caret & Mono ───────────────────────────────────────────────
+  --caret-color: #81A2BE;
+  --mono-rgb-0: 0, 0, 0;
+  --mono-rgb-100: 255, 255, 255;
+
+  // ─── Transparent Overlays (hue-tinted) ──────────────────────────
+  --trans-faint-10: oklch(0.95 0.005 var(--bhue) / 0.05);
+  --trans-faint-20: oklch(0.95 0.005 var(--bhue) / 0.10);
+  --trans-faint-30: oklch(0.95 0.005 var(--bhue) / 0.15);
+  --trans-strong-10: oklch(0.15 0.005 var(--bhue) / 0.20);
+  --trans-strong-20: oklch(0.15 0.005 var(--bhue) / 0.35);
+  --trans-strong-30: oklch(0.15 0.005 var(--bhue) / 0.50);
+
+  // ─── Shadow Scale (dark mode — deeper) ──────────────────────────
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.15);
+  --shadow-s: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-l: 0 8px 32px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+
+  // ─── Glass Effects (dark mode — more visible) ───────────────────
+  --glass-base: inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.12);
+  --glass-button: inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.18);
+
+  // ─── Radial Gradient Workspace Background ───────────────────────
+  --bg-main-inner: var(--color-base-10);
+  --bg-main-outer: var(--color-base-00);
+
+  // ─── Border ─────────────────────────────────────────────────────
+  --border-width: 1px;
+}

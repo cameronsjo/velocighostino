@@ -1,0 +1,61 @@
+// ─── Hover-Reveal Sidebars ───────────────────────────────────────────
+// Auto-hide sidebars below 800px width, reveal on hover
+
+@media (max-width: 800px) {
+  // Left sidebar
+  .workspace-split.mod-left-split {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform var(--vl-duration-slow) var(--vl-ease);
+    box-shadow: var(--shadow-l);
+
+    &:hover,
+    &:focus-within {
+      transform: translateX(0);
+    }
+  }
+
+  // Right sidebar
+  .workspace-split.mod-right-split {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 280px;
+    transform: translateX(100%);
+    transition: transform var(--vl-duration-slow) var(--vl-ease);
+    box-shadow: var(--shadow-l);
+
+    &:hover,
+    &:focus-within {
+      transform: translateX(0);
+    }
+  }
+
+  // Hover trigger zones at screen edges
+  .workspace-split.mod-left-split::before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 0;
+    bottom: 0;
+    width: 12px;
+    z-index: 11;
+  }
+
+  .workspace-split.mod-right-split::before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    width: 12px;
+    z-index: 11;
+  }
+}

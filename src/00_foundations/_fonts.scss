@@ -1,0 +1,133 @@
+// ─── @font-face Declarations ─────────────────────────────────────────
+// Dual local() for cross-platform: Full Name (macOS) + PostScript (Windows)
+// "S" = Static fonts, "V" = Variable fonts
+
+// ─── iA Writer Quattro (Body Text) ──────────────────────────────────
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("iA Writer Quattro V"),
+    local("iAWriterQuattroV-Regular"),
+    local("iA Writer Quattro S Regular"),
+    local("iAWriterQuattroS-Regular");
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("iA Writer Quattro V Italic"),
+    local("iAWriterQuattroV-Italic"),
+    local("iA Writer Quattro S Italic"),
+    local("iAWriterQuattroS-Italic");
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("iA Writer Quattro V Bold"),
+    local("iAWriterQuattroV-Bold"),
+    local("iA Writer Quattro S Bold"),
+    local("iAWriterQuattroS-Bold");
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local("iA Writer Quattro V Bold Italic"),
+    local("iAWriterQuattroV-BoldItalic"),
+    local("iA Writer Quattro S Bold Italic"),
+    local("iAWriterQuattroS-BoldItalic");
+}
+
+// ─── iA Writer Mono (Code) ──────────────────────────────────────────
+
+@font-face {
+  font-family: "iA Writer Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("iA Writer Mono V"),
+    local("iAWriterMonoV-Regular"),
+    local("iA Writer Mono S Regular"),
+    local("iAWriterMonoS-Regular");
+}
+
+@font-face {
+  font-family: "iA Writer Mono";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("iA Writer Mono V Italic"),
+    local("iAWriterMonoV-Italic"),
+    local("iA Writer Mono S Italic"),
+    local("iAWriterMonoS-Italic");
+}
+
+@font-face {
+  font-family: "iA Writer Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("iA Writer Mono V Bold"),
+    local("iAWriterMonoV-Bold"),
+    local("iA Writer Mono S Bold"),
+    local("iAWriterMonoS-Bold");
+}
+
+@font-face {
+  font-family: "iA Writer Mono";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local("iA Writer Mono V Bold Italic"),
+    local("iAWriterMonoV-BoldItalic"),
+    local("iA Writer Mono S Bold Italic"),
+    local("iAWriterMonoS-BoldItalic");
+}
+
+// ─── Atkinson Hyperlegible Next (UI) ────────────────────────────────
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Atkinson Hyperlegible Next Regular"),
+    local("AtkinsonHyperlegibleNext-Regular");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Atkinson Hyperlegible Next Italic"),
+    local("AtkinsonHyperlegibleNext-Italic");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Atkinson Hyperlegible Next Bold"),
+    local("AtkinsonHyperlegibleNext-Bold");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Atkinson Hyperlegible Next Bold Italic"),
+    local("AtkinsonHyperlegibleNext-BoldItalic");
+}

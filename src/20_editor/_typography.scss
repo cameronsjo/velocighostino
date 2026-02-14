@@ -1,0 +1,104 @@
+// ─── Typography: Headings, Body Text, Spacing ───────────────────────
+
+// ─── Base Text Settings ───────────────────────────────────────────
+body {
+  --line-height-normal: 1.6;
+  --p-spacing: 1em;
+  --bold-weight: 600;
+  font-feature-settings: "calt" 1, "kern" 1;
+}
+
+.markdown-source-view,
+.markdown-preview-view {
+  font-feature-settings: "calt" 1, "kern" 1, "liga" 1;
+}
+
+// ─── Heading Scale ────────────────────────────────────────────────
+// H1: title treatment — large, light weight, display-style
+// H2-H6: progressive scale with medium-to-semibold weights
+
+.markdown-source-view,
+.markdown-preview-view {
+  // H1 — title heading
+  & :is(h1, .HyperMD-header-1 .cm-header-1) {
+    font-size: 2em;
+    font-weight: 330;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+
+    // Decorative rule beneath H1
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin-top: 0.4em;
+      background: var(--background-modifier-border);
+    }
+  }
+
+  // H2
+  & :is(h2, .HyperMD-header-2 .cm-header-2) {
+    font-size: 1.5em;
+    font-weight: 520;
+    letter-spacing: -0.005em;
+    line-height: 1.3;
+    margin-top: 1.4em;
+    margin-bottom: 0.4em;
+  }
+
+  // H3
+  & :is(h3, .HyperMD-header-3 .cm-header-3) {
+    font-size: 1.25em;
+    font-weight: 580;
+    line-height: 1.35;
+    margin-top: 1.3em;
+    margin-bottom: 0.35em;
+  }
+
+  // H4
+  & :is(h4, .HyperMD-header-4 .cm-header-4) {
+    font-size: 1.125em;
+    font-weight: 620;
+    line-height: 1.4;
+    margin-top: 1.2em;
+    margin-bottom: 0.3em;
+  }
+
+  // H5
+  & :is(h5, .HyperMD-header-5 .cm-header-5) {
+    font-size: 1.05em;
+    font-weight: 650;
+    line-height: 1.45;
+    margin-top: 1.1em;
+    margin-bottom: 0.25em;
+  }
+
+  // H6
+  & :is(h6, .HyperMD-header-6 .cm-header-6) {
+    font-size: 1em;
+    font-weight: 670;
+    line-height: 1.5;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+    color: var(--text-muted);
+  }
+}
+
+// ─── Heading Alignment Corrections ────────────────────────────────
+// Counteract leftward drift from larger font sizes
+.markdown-source-view,
+.markdown-preview-view {
+  & :is(h1, .HyperMD-header-1) { text-indent: 0.02em; }
+  & :is(h2, .HyperMD-header-2) { text-indent: 0.015em; }
+  & :is(h3, .HyperMD-header-3) { text-indent: 0.01em; }
+  & :is(h4, .HyperMD-header-4) { text-indent: 0.005em; }
+}
+
+// ─── Paragraph Spacing ────────────────────────────────────────────
+.markdown-source-view .cm-line + .cm-line,
+.markdown-preview-view p + p {
+  margin-top: var(--p-spacing);
+}

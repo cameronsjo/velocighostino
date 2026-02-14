@@ -1,0 +1,46 @@
+// ─── Workspace Layout ────────────────────────────────────────────────
+// Radial gradient background, tab container radius, split pane gaps
+
+body {
+  --file-line-width: 43.75rem;
+  --file-margins: 28px 5%;
+}
+
+// Workspace background — radial gradient for depth
+.workspace {
+  background: radial-gradient(
+    at 50% 50%,
+    var(--bg-main-inner) 0%,
+    var(--bg-main-outer) 200%
+  );
+}
+
+// Tab container — rounded corners
+.workspace-split.mod-root {
+  .workspace-tab-container {
+    border-radius: var(--radius-ml);
+    overflow: hidden;
+    margin: var(--vl-layout-padding);
+    background: var(--background-primary);
+  }
+
+  // Corner smoothing (Obsidian 1.11+ / Chromium 139+)
+  .workspace-tab-container {
+    corner-shape: squircle;
+  }
+}
+
+// Split pane gaps
+.workspace-split.mod-root > .workspace-leaf {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+}
+
+// Workspace leaf padding
+.workspace-leaf-content {
+  padding: 0;
+}

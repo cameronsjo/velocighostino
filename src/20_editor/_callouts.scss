@@ -1,0 +1,46 @@
+// ─── Callout Styling ─────────────────────────────────────────────────
+// Rounded corners, type-appropriate color coding, gradient backgrounds
+
+.callout {
+  border-radius: var(--radius-s);
+  border-left: 4px solid rgb(var(--callout-color));
+  background: linear-gradient(
+    135deg,
+    rgba(var(--callout-color), 0.08) 0%,
+    rgba(var(--callout-color), 0.03) 100%
+  );
+  padding: 0.75em 1em;
+  margin: 0.5em 0;
+  overflow: hidden;
+}
+
+.callout-title {
+  font-weight: 600;
+  font-size: 0.95em;
+  color: rgb(var(--callout-color));
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  padding-bottom: 0.3em;
+}
+
+.callout-title-inner {
+  font-weight: 600;
+}
+
+.callout-content {
+  color: var(--text-normal);
+  font-size: 0.95em;
+}
+
+// Callout icon sizing
+.callout-icon {
+  display: flex;
+  align-items: center;
+
+  .svg-icon {
+    width: 1.2em;
+    height: 1.2em;
+    color: rgb(var(--callout-color));
+  }
+}

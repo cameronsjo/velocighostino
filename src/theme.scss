@@ -1,0 +1,34 @@
+// Velocighostino — Obsidian Theme
+// Velocity's OKLCH engine + Cupertino's polish + Ghostty's palette
+
+// 0. Foundations
+@use '00_foundations/variables';
+@use '00_foundations/fonts';
+@use '00_foundations/base';
+
+// 1. Color Palettes
+@use '10_colors/dark';
+@use '10_colors/light';
+
+// 2. Editor / Markdown
+@use '20_editor/typography';
+@use '20_editor/lists';
+@use '20_editor/blockquotes';
+@use '20_editor/callouts';
+@use '20_editor/code';
+@use '20_editor/tables';
+@use '20_editor/embeds';
+@use '20_editor/formatting';
+
+// 3. UI Chrome
+@use '30_chrome/layout';
+@use '30_chrome/tabs';
+@use '30_chrome/sidebar';
+@use '30_chrome/statusbar';
+@use '30_chrome/modals';
+@use '30_chrome/nav';
+
+// 4. Features
+@use '40_features/active-line';
+@use '40_features/focus-mode';
+@use '40_features/hover-sidebar';

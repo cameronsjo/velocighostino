@@ -1,0 +1,45 @@
+// ─── Tab Styling ─────────────────────────────────────────────────────
+// Clean appearance, active/inactive distinction
+
+.workspace-tab-header-container {
+  background: var(--background-secondary);
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding: 2px var(--vl-layout-padding);
+}
+
+.workspace-tab-header {
+  border-radius: var(--radius-s) var(--radius-s) 0 0;
+  padding: 4px 12px;
+  font-size: 0.85em;
+  font-family: var(--font-interface-theme);
+  color: var(--text-muted);
+  transition: background-color var(--vl-duration-fast) var(--vl-ease),
+    color var(--vl-duration-fast) var(--vl-ease);
+
+  &:hover {
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+  }
+
+  // Active tab
+  &.is-active {
+    background: var(--background-primary);
+    color: var(--text-normal);
+    box-shadow: var(--shadow-xs);
+
+    .workspace-tab-header-inner-title {
+      font-weight: 500;
+    }
+  }
+}
+
+// Tab close button
+.workspace-tab-header-inner-close-button {
+  color: var(--text-faint);
+  opacity: 0;
+  transition: opacity var(--vl-duration-fast) var(--vl-ease);
+
+  .workspace-tab-header:hover & {
+    opacity: 1;
+  }
+}
