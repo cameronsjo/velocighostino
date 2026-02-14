@@ -34,11 +34,11 @@ The dark mode SHALL use Ghostty Blue (`#81A2BE`) as the accent color (`--interac
 - **THEN** `--interactive-accent` SHALL resolve to `#81A2BE` or its OKLCH equivalent
 
 ### Requirement: Dark mode text colors
-The dark mode SHALL use Ghostty Bright White (`#EAEAEA`) for normal text, with muted and faint variants derived from the base color scale.
+The dark mode SHALL use Ghostty ANSI 15 / Bright White (`#EAEAEA`) for `--text-normal` — deliberately chosen over Ghostty's Config.zig foreground (`#FFFFFF`) for reduced glare during long writing sessions. Ghostty ANSI 7 / White (`#C5C8C6`, Tomorrow Night's canonical foreground) SHALL be used for `--text-muted`. Ghostty ANSI 8 / Bright Black (`#666666`) SHALL inform `--text-faint`.
 
 #### Scenario: Text hierarchy in dark mode
 - **WHEN** dark mode is active
-- **THEN** `--text-normal` SHALL resolve to approximately `#EAEAEA`, `--text-muted` SHALL be visibly dimmer, and `--text-faint` SHALL be substantially dimmer — all maintaining readability
+- **THEN** `--text-normal` SHALL resolve to approximately `#EAEAEA` (ANSI 15), `--text-muted` SHALL resolve to approximately `#C5C8C6` (ANSI 7), and `--text-faint` SHALL be substantially dimmer informed by `#666666` (ANSI 8) — all maintaining readability
 
 ### Requirement: Radial gradient workspace background
 The dark mode SHALL apply a subtle radial gradient to the workspace background, lighter at center and darker at edges, creating depth.

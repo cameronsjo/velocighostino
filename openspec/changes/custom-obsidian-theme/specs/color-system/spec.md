@@ -1,18 +1,29 @@
 ## ADDED Requirements
 
 ### Requirement: Parametric base color generation
-The theme SHALL generate all base surface colors (`--color-base-00` through `--color-base-100`) using the OKLCH color function from three parameters: `--bhue` (hue angle), `--bsat-*` (saturation tiers), and `--bl-*` (lightness scale steps).
+The theme SHALL generate Obsidian's 12 discrete base surface colors (`--color-base-00`, `-05`, `-10`, `-20`, `-25`, `-30`, `-35`, `-40`, `-50`, `-60`, `-70`, `-100`) using the OKLCH color function from three parameters: `--bhue` (hue angle), `--bsat-*` (saturation tiers), and `--bl-*` (lightness scale steps). Note: the scale is NOT continuous 0-100 — Obsidian defines exactly these 12 steps.
 
 #### Scenario: Dark mode base colors derived from OKLCH
 - **WHEN** the theme is in dark mode
-- **THEN** `--color-base-00` through `--color-base-100` SHALL be computed via `oklch(var(--bl-XX) var(--bsat-*) var(--bhue))` with lightness increasing from ~23% (darkest surface) to ~93% (lightest text)
+- **THEN** the 12 `--color-base-*` steps SHALL be computed via `oklch(var(--bl-XX) var(--bsat-*) var(--bhue))` with lightness increasing from ~23% (darkest surface at `-00`) to ~93% (lightest text at `-100`)
 
 #### Scenario: Light mode base colors derived from OKLCH
 - **WHEN** the theme is in light mode
-- **THEN** `--color-base-00` through `--color-base-100` SHALL be computed via `oklch()` with lightness inverted — `--bl-00` at ~100% (lightest surface) decreasing to `--bl-100` at ~24% (darkest text)
+- **THEN** the 12 `--color-base-*` steps SHALL be computed via `oklch()` with lightness inverted — `--bl-00` at ~100% (lightest surface) decreasing to `--bl-100` at ~24% (darkest text)
 
 ### Requirement: Semantic color mapping
-The theme SHALL map Obsidian's semantic color variables (`--background-primary`, `--background-secondary`, `--text-normal`, `--text-muted`, `--text-faint`, `--interactive-accent`, etc.) to the parametric base color scale.
+The theme SHALL map ALL of Obsidian's semantic color variables to the parametric base color scale. This includes the core set (`--background-primary`, `--background-secondary`, `--text-normal`, `--text-muted`, `--text-faint`, `--interactive-accent`) AND the extended set that Obsidian's internal components consume:
+- `--background-primary-alt` (file headers, embedded content)
+- `--background-modifier-form-field` (inputs, search)
+- `--background-modifier-active-hover` (nav items)
+- `--interactive-normal` (button resting state)
+- `--text-accent`, `--text-accent-hover` (links)
+- `--text-on-accent`, `--text-on-accent-inverted`
+- `--text-error`, `--text-warning`, `--text-success`
+- `--text-selection`, `--text-highlight-bg` (selection + `==highlight==`)
+- `--accent-h`, `--accent-s`, `--accent-l` (HSL components for `calc()` usage)
+- `--caret-color` (editor cursor)
+- `--mono-rgb-0`, `--mono-rgb-100` (pure black/white triplets)
 
 #### Scenario: Background variables resolve to base colors
 - **WHEN** Obsidian reads `--background-primary`
@@ -21,6 +32,10 @@ The theme SHALL map Obsidian's semantic color variables (`--background-primary`,
 #### Scenario: Text variables resolve to appropriate contrast
 - **WHEN** Obsidian reads `--text-normal`
 - **THEN** it SHALL resolve to a base color with sufficient contrast (WCAG AA minimum 4.5:1) against `--background-primary`
+
+#### Scenario: Extended semantic variables all defined
+- **WHEN** Obsidian reads any semantic variable listed above
+- **THEN** it SHALL resolve to a meaningful color derived from the parametric system (no undefined/fallback gaps)
 
 ### Requirement: Rainbow color palette
 The theme SHALL define 8 rainbow colors (`--color-red`, `--color-orange`, `--color-yellow`, `--color-green`, `--color-cyan`, `--color-blue`, `--color-purple`, `--color-pink`) with both solid and RGB-triplet (`--color-*-rgb`) variants for each mode.

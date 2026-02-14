@@ -41,21 +41,30 @@ User preferences: iA Writer Quattro for body text, Atkinson Hyperlegible for UI.
 
 ### 2. Dark mode: Ghostty palette mapped into OKLCH engine
 
-**Choice**: Use Ghostty's exact hex values for the 8 rainbow colors (`--color-red` through `--color-pink`) and derive the grayscale/background stack via OKLCH with `--bhue: 220` (matching `#282C34`'s blue-gray undertone).
+**Choice**: Use Ghostty's exact hex values (verified against `src/terminal/color.zig` and `src/config/Config.zig`) for the 8 rainbow colors (`--color-red` through `--color-pink`) and derive the grayscale/background stack via OKLCH with `--bhue: 220` (matching `#282C34`'s blue-gray undertone).
 
 **Why**: The Ghostty palette is the identity of this theme. The rainbow colors should be recognizable to anyone who uses Ghostty. But the background/surface/border stack needs more than 16 colors — OKLCH fills the gaps perceptually.
 
-**Mapping**:
+**Foreground note**: Ghostty's Config.zig foreground is `#FFFFFF` (pure white). We deliberately use ANSI 15 / bright white (`#EAEAEA`) for `--text-normal` — it's softer, reduces glare for long writing sessions, and is what users actually see most in the terminal. ANSI 7 (`#C5C8C6`, Tomorrow Night's canonical foreground) serves as `--text-muted`.
+
+**Mapping** (all verified against `color.zig`):
 | Ghostty ANSI     | Hex       | Obsidian slot        |
 |------------------|-----------|----------------------|
-| Red              | `#CC6666` | `--color-red`        |
-| Green            | `#B5BD68` | `--color-green`      |
-| Yellow           | `#F0C674` | `--color-yellow`     |
-| Blue             | `#81A2BE` | `--color-blue`       |
-| Magenta          | `#B294BB` | `--color-purple`     |
-| Cyan             | `#8ABEB7` | `--color-cyan`       |
-| Bright Red       | `#D54E53` | `--color-red` (alt)  |
-| Bright Magenta   | `#C397D8` | `--color-pink`       |
+| 1 Red            | `#CC6666` | `--color-red`        |
+| 2 Green          | `#B5BD68` | `--color-green`      |
+| 3 Yellow         | `#F0C674` | `--color-yellow`     |
+| 4 Blue           | `#81A2BE` | `--color-blue`       |
+| 5 Magenta        | `#B294BB` | `--color-purple`     |
+| 6 Cyan           | `#8ABEB7` | `--color-cyan`       |
+| 9 Bright Red     | `#D54E53` | `--color-orange`     |
+| 13 Bright Magenta| `#C397D8` | `--color-pink`       |
+| 7 White          | `#C5C8C6` | `--text-muted`       |
+| 15 Bright White  | `#EAEAEA` | `--text-normal`      |
+| 0 Black          | `#1D1F21` | deepest surface ref  |
+| 8 Bright Black   | `#666666` | `--text-faint` ref   |
+
+Full unused bright colors available for Phase 2:
+10 Bright Green `#B9CA4A`, 11 Bright Yellow `#E7C547`, 12 Bright Blue `#7AA6DA`, 14 Bright Cyan `#70C0B1`.
 
 Accent color: `#81A2BE` (Ghostty blue) — muted, warm, distinctive.
 
@@ -74,11 +83,18 @@ Accent color: `#81A2BE` (Ghostty blue) — muted, warm, distinctive.
 | Context           | Font                    | Rationale |
 |--------------------|-------------------------|-----------|
 | Editor body text   | iA Writer Quattro       | Proportional spacing with monospace rhythm — ideal for long-form writing. Distinctive character. |
-| UI (menus, tabs, sidebar, settings) | Atkinson Hyperlegible | Designed for maximum legibility at small sizes. Clean, no-nonsense. |
+| UI (menus, tabs, sidebar, settings) | Atkinson Hyperlegible Next | 2024 update: 7 weights, improved kerning, 150+ languages. Designed for maximum legibility at small sizes. |
 | Code blocks        | iA Writer Mono          | Matches Quattro's design language for inline/block code. Falls back to system monospace. |
 | Headings           | iA Writer Quattro       | Same as body for cohesion, weight/size differentiation only. |
 
-**Font loading**: `@font-face` declarations with `local()` first (for users who have the fonts installed), then a hosted fallback URL. No base64 embedding — keeps `theme.css` under 50KB.
+**Critical `local()` naming gotcha** (verified via fonttools against actual TTF name tables):
+- iA Writer static fonts register with an **"S" suffix**: `iA Writer Quattro S`, `iA Writer Mono S`
+- Variable font files use **"V"**: `iA Writer Quattro V`, `iA Writer Mono V`
+- `local("iA Writer Quattro")` will **silently fail** — must use `local("iA Writer Quattro S Regular")` + `local("iAWriterQuattroS-Regular")` (Full Name for macOS, PostScript for Windows)
+- The updated font is **"Atkinson Hyperlegible Next"** (not "Atkinson Hyperlegible")
+- All three fonts are SIL OFL 1.1 — safe for open-source theme
+
+**Font loading**: `@font-face` declarations with dual `local()` (Full Name + PostScript Name for cross-platform matching). No base64 embedding — keeps `theme.css` under 50KB.
 
 **Fallback stack**: `"iA Writer Quattro", "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`
 
