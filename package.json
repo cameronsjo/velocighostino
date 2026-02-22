@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "sass src/theme.scss theme.css --no-source-map --style compressed",
+    "build": "sass src/theme.scss theme.css --no-source-map --style compressed && cp theme.css theme-beta.css",
     "dev": "sass src/theme.scss theme.css --no-source-map --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.97.3"
   }
 }
