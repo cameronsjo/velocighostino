@@ -2,33 +2,27 @@ name: Release
 
 on:
   push:
-    tags:
-      - "*"
+    branches:
+      - main
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
-  release:
+  release-please:
     runs-on: ubuntu-latest
     steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+
       - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
 
-      - name: Validate tag matches manifest version
-        run: |
-          MANIFEST_VERSION=$(jq -r .version manifest.json)
-          TAG="${GITHUB_REF#refs/tags/}"
-          if [ "$TAG" != "$MANIFEST_VERSION" ]; then
-            echo "::error::Tag '$TAG' does not match manifest version '$MANIFEST_VERSION'"
-            exit 1
-          fi
-
-      - name: Create release
+      - name: Upload release assets
+        if: ${{ steps.release.outputs.release_created }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="${GITHUB_REF#refs/tags/}"
-          gh release create "$TAG" theme.css manifest.json \
-            --title "v${TAG}" \
-            --generate-notes \
-            --latest
+          gh release upload ${{ steps.release.outputs.tag_name }} \
+            theme.css manifest.json --clobber
