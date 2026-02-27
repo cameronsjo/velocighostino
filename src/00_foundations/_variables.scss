@@ -43,13 +43,6 @@
   --font-monospace-theme: "iA Writer Mono", "SF Mono", "Fira Code",
     "Cascadia Code", ui-monospace, monospace;
 
-  // ─── Obsidian Built-in Font Overrides ─────────────────────────
-  // Set Obsidian's native variables so ALL UI elements pick up our fonts,
-  // not just the selectors we explicitly target with --font-*-theme
-  --font-interface: var(--font-interface-theme);
-  --font-text: var(--font-text-theme);
-  --font-monospace: var(--font-monospace-theme);
-
   // ─── Glass Effect Variables ─────────────────────────────────────
   --glass-base: inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
     inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
