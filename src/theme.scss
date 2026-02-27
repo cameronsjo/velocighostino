@@ -3,7 +3,6 @@
 
 // 0. Foundations
 @use '00_foundations/variables';
-@use '00_foundations/fonts';
 @use '00_foundations/base';
 
 // 1. Color Palettes
@@ -32,3 +31,6 @@
 @use '40_features/active-line';
 @use '40_features/focus-mode';
 @use '40_features/hover-sidebar';
+
+// 5. Embedded Fonts (last — large base64 blocks after all rules)
+@use '00_foundations/fonts';

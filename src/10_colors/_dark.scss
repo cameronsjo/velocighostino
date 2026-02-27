@@ -136,11 +136,6 @@
   --bg-main-inner: var(--color-base-10);
   --bg-main-outer: var(--color-base-00);
 
-  // ─── Font Overrides (must be here to beat Obsidian's app.css specificity)
-  --font-interface: var(--font-interface-theme);
-  --font-text: var(--font-text-theme);
-  --font-monospace: var(--font-monospace-theme);
-
   // ─── Border ─────────────────────────────────────────────────────
   --border-width: 1px;
 }
