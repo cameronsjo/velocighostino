@@ -1,6 +1,6 @@
 {
   "name": "velocighostino",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "build": "sass src/theme.scss theme.css --no-source-map --style compressed && cp theme.css theme-beta.css",
