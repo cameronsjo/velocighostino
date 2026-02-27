@@ -35,8 +35,11 @@
 }
 
 // ─── Glass Bevel on Buttons (tasks 7.2, 7.3) ─────────────────────
-// CTA buttons — glass bevel effect
+// CTA buttons — accent fill with glass bevel
 button.mod-cta {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: none;
   box-shadow: var(--glass-button);
   border-radius: var(--radius-s);
   font-family: var(--font-interface-theme);
@@ -45,6 +48,7 @@ button.mod-cta {
     background-color var(--vl-duration-fast) var(--vl-ease);
 
   &:hover {
+    background-color: var(--interactive-accent-hover);
     box-shadow: var(--glass-button), var(--shadow-xs);
   }
 
@@ -53,8 +57,11 @@ button.mod-cta {
   }
 }
 
-// Secondary buttons
+// Secondary/warning buttons
 button.mod-warning {
+  background-color: var(--background-modifier-error);
+  color: var(--text-on-accent);
+  border: none;
   box-shadow: var(--glass-button);
 }
 
