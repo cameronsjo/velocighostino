@@ -13,13 +13,13 @@ Fuses Velocity's OKLCH engine, Cupertino's layout polish, Ghostty's Tomorrow Nig
 
 Layer system with numbered directories — imports flow top to bottom:
 
-- `00_foundations/` — CSS custom properties (`_variables.scss`), `@font-face` declarations (`_fonts.scss`), reset/scrollbars/animations (`_base.scss`)
+- `00_foundations/` — CSS custom properties (`_variables.scss`), `@font-face` declarations with base64-embedded woff2 (`_fonts.scss`), reset/scrollbars/animations (`_base.scss`)
 - `10_colors/` — Dark (`.theme-dark`) and light (`.theme-light`) mode palettes
 - `20_editor/` — Markdown rendering: typography, lists, blockquotes, callouts, code, tables, embeds, formatting
 - `30_chrome/` — UI shell: layout, tabs, sidebar, status bar, modals, nav
 - `40_features/` — Optional behaviors: focus mode, active line, hover-reveal sidebars
 
-Convention: all partials use `_name.scss` prefix, imported via `@use` in `theme.scss`. One concern per partial.
+Convention: all partials use `_name.scss` prefix, imported via `@use` in `theme.scss`. One concern per partial. `_fonts.scss` is imported LAST because its ~580KB of base64 data should come after all rule blocks.
 
 ## OKLCH Color System
 
@@ -30,6 +30,17 @@ Convention: all partials use `_name.scss` prefix, imported via `@use` in `theme.
 - All semantic colors derive from these parameters — changing `--bhue` shifts the entire palette
 
 ## Obsidian CSS Conventions
+
+### Variable Scoping (body vs :root)
+
+Obsidian resolves CSS variables from specific selectors. Using the wrong one causes silent failures:
+
+- **`body { }`** — Font stacks (`--font-*-theme`) and shared cross-mode variables MUST go here. `:root` does NOT reliably cascade to all UI elements (file explorer, sidebar, etc.)
+- **`.theme-dark { }` / `.theme-light { }`** — Mode-specific overrides (colors, shadows, glass effects)
+- **`:root { }`** — Use with caution. Obsidian docs recommend `body` instead. Safe for internal/custom variables (e.g., `--vl-*`, `--bhue`) but NOT for Obsidian's own `--font-*-theme` variables
+- Do NOT try to bridge `--font-interface` / `--font-text` / `--font-monospace` (Obsidian's built-in variables) — set the `-theme` variants on `body` and Obsidian handles the rest
+
+### Other Conventions
 
 - `--color-base-*` has exactly 12 steps: 00, 05, 10, 20, 25, 30, 35, 40, 50, 60, 70, 100
 - Do NOT create intermediate steps (15, 45, 55, etc.) — they are dead code
